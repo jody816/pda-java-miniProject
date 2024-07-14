@@ -3,17 +3,15 @@ package Bbashyan.dao;
 import Bbashyan.model.Menu;
 import Bbashyan.model.Restaurant;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class RestaurantDao {
 
-    private static final Map<String, Restaurant> map = new HashMap<>();
+    private static final Map<String, Restaurant> map = new LinkedHashMap<>();
 
     public RestaurantDao(){
         map.put("밥플러스", Restaurant.builder()
+                .id(1)
                 .name("밥플러스")
                 .categoryId(1)
                 .address("서울특별시 성동구 성수동2가 315-61번지 202 203호")
@@ -26,6 +24,7 @@ public class RestaurantDao {
                 .build());
 
         map.put("담미온", Restaurant.builder()
+                .id(2)
                 .name("담미온")
                 .categoryId(1)
                 .address("서울특별시 성동구 성수동2가 성수이로 118")
@@ -38,6 +37,7 @@ public class RestaurantDao {
                 .build());
 
         map.put("제주국수", Restaurant.builder()
+                .id(3)
                 .name("제주국수")
                 .categoryId(1)
                 .address("서울특별시 성동구 성수동2가 277-17")
@@ -50,6 +50,7 @@ public class RestaurantDao {
                 .build());
 
         map.put("착한짜장", Restaurant.builder()
+                .id(1)
                 .name("착한짜장")
                 .categoryId(2)
                 .address("서울특별시 성동구 아차산로7길 17-1")
@@ -62,6 +63,7 @@ public class RestaurantDao {
                 .build());
 
         map.put("이가네 양꼬치", Restaurant.builder()
+                .id(2)
                 .name("이가네 양꼬치")
                 .categoryId(2)
                 .address("서울특별시 성동구 아차산로 116")
@@ -73,6 +75,7 @@ public class RestaurantDao {
                 .build());
 
         map.put("고투웤", Restaurant.builder()
+                .id(3)
                 .name("고투웤")
                 .categoryId(2)
                 .address("서울특별시 성동구 성수동2가 314-13")
@@ -85,6 +88,7 @@ public class RestaurantDao {
                 .build());
 
         map.put("호랭이 초밥", Restaurant.builder()
+                .id(1)
                 .name("호랭이 초밥")
                 .categoryId(3)
                 .address("초밥이 먹고 싶을 때, 호랭이 초밥")
@@ -97,6 +101,7 @@ public class RestaurantDao {
                 .build());
 
         map.put("도죠", Restaurant.builder()
+                .id(2)
                 .name("도죠")
                 .categoryId(3)
                 .address("서울특별시 성동구 성수이로 126")
@@ -109,6 +114,7 @@ public class RestaurantDao {
                 .build());
 
         map.put("교대 일층집", Restaurant.builder()
+                .id(3)
                 .name("교대 일층집")
                 .categoryId(3)
                 .address("교대 이층집 아래")
@@ -120,8 +126,9 @@ public class RestaurantDao {
                 ))
                 .build());
 
-        // 양식
+
         map.put("미도인 성수", Restaurant.builder()
+                .id(1)
                 .name("미도인 성수")
                 .categoryId(4)
                 .address("서울특별시 성동구 연무장7가길 3")
@@ -134,6 +141,7 @@ public class RestaurantDao {
                 .build());
 
         map.put("캥거루고깃집", Restaurant.builder()
+                .id(2)
                 .name("캥거루고깃집")
                 .categoryId(4)
                 .address("Australia 어딘가")
@@ -146,6 +154,7 @@ public class RestaurantDao {
                 .build());
 
         map.put("자바와 신희을", Restaurant.builder()
+                .id(3)
                 .name("자바와 신희을")
                 .categoryId(4)
                 .address("서울특별시 성동구 성수일로8길 59 평화빌딩 B동 2층")
@@ -158,8 +167,22 @@ public class RestaurantDao {
                 .build());
     }
 
-    public List<Restaurant> findAll() {
-        return new ArrayList<>(map.values());
+    public List<Restaurant> findByCategoryId(int categoryId) {
+        List<Restaurant> restaurants = new ArrayList<>();
+        for (Restaurant restaurant : map.values()) {
+            if (restaurant.getCategoryId() == categoryId) {
+                restaurants.add(restaurant);
+            }
+        }
+        return restaurants;
+    }
+    public Restaurant findOneByRestaurantId(int categoryId, int restaurantId) {
+        for (Restaurant restaurant : map.values()) {
+            if (restaurant.getCategoryId() == categoryId && restaurant.getId() == restaurantId) {
+                return restaurant;
+            }
+        }
+        return null;
     }
 
 }
