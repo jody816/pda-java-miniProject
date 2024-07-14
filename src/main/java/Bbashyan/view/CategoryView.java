@@ -10,6 +10,7 @@ import java.util.List;
 
 public class CategoryView {
     private CategoryController controller;
+
     private BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     public CategoryView(CategoryController controller) {
         this.controller = controller;
@@ -23,7 +24,8 @@ public class CategoryView {
         }
 
         int categorySelect = Integer.parseInt(input());
-        controller.selectCategories(categorySelect);
+        controller.getRestaurantController().displayRestaurantByCategoryId(categorySelect);
+
     }
     private String input() throws IOException {
         System.out.print("입력 : ");
