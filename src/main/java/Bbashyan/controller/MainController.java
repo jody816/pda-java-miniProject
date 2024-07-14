@@ -3,10 +3,13 @@ package Bbashyan.controller;
 import Bbashyan.model.User;
 import Bbashyan.view.MainView;
 import Bbashyan.view.RestaurantView;
+import lombok.Getter;
 
 import java.io.IOException;
 
+@Getter
 public class MainController {
+
     private static MainController instance;
     private MainView mainView;
     private UserController userController;
@@ -45,18 +48,5 @@ public class MainController {
     public void displayMainMenu() throws IOException {
         mainView.displayMainMenu();
     }
-
-    public UserController getUserController() {
-        return userController;
-    }
-
-    public CategoryController getCategoryController() {
-        return categoryController;
-    }
-
-    public BucketController getBucketController() {
-        return bucketController;
-    }
-
 
 }

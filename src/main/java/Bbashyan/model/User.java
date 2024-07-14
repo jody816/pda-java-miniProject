@@ -9,77 +9,77 @@ import lombok.ToString;
 @Builder
 public class User {
 
-  private String id;
-  private String name;
-  private Bucket bucket;
-  private String password;
-  private String address;
-  private int credit;
+    private String id;
+    private String name;
+    private Bucket bucket;
+    private String password;
+    private String address;
+    private int credit;
 
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
 
-    sb.append("아이디: ").append(id).append("\n")
-        .append("이름: ").append(name).append("\n")
-        .append("잔액: ").append(credit).append(" ￦").append("\n");
+        sb.append("아이디: ").append(id).append("\n")
+                .append("이름: ").append(name).append("\n")
+                .append("잔액: ").append(credit).append(" ￦").append("\n");
 
-    return sb.toString();
-  }
+        return sb.toString();
+    }
 
-  public String getId() {
-    return id;
-  }
+    public String getId() {
+        return id;
+    }
 
-  public void setId(String id) {
-    this.id = id;
-  }
+    public void setId(String id) {
+        this.id = id;
+    }
 
-  public String getName() {
-    return name;
-  }
+    public String getName() {
+        return name;
+    }
 
-  public void setName(String name) {
-    this.name = name;
-  }
+    public void setName(String name) {
+        this.name = name;
+    }
 
-  public Bucket getBucket() {
-    return bucket;
-  }
+    public Bucket getBucket() {
+        return bucket;
+    }
 
-  public void setBucket(Bucket bucket) {
-    this.bucket = bucket;
-  }
+    public void setBucket(Bucket bucket) {
+        this.bucket = bucket;
+    }
 
-  public String getPassword() {
-    return password;
-  }
+    public String getPassword() {
+        return password;
+    }
 
-  public void setPassword(String password) {
-    this.password = password;
-  }
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
-  public String getAddress() {
-    return address;
-  }
+    public String getAddress() {
+        return address;
+    }
 
-  public int getCredit() {
-    return credit;
-  }
+    public int getCredit() {
+        return credit;
+    }
 
-  public void setCredit(int credit) {
-    this.credit = credit;
-  }
+    public void setCredit(int credit) {
+        this.credit = credit;
+    }
 
-  public void setAddress(String address) {
-    this.address = address;
-  }
+    public void setAddress(String address) {
+        this.address = address;
+    }
 
-  public void plusCredit(int credit) {
-    this.credit += credit;
-  }
+    public void plusCredit(int credit) {
+        this.credit += credit;
+    }
 
-  public void minusCredit(int credit) {
-    this.credit -= credit;
-  }
+    public void minusCredit(int credit) {
+        this.credit -= credit;
+    }
 }
