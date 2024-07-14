@@ -6,6 +6,9 @@ import Bbashyan.model.Restaurant;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 
 public class RestaurantDetailView {
@@ -29,13 +32,34 @@ public class RestaurantDetailView {
             System.out.println(" - " + menu.getName() + ": " + menu.getPrice() + "원");
         }
         System.out.println("===================");
-        int RestaurantSelect = Integer.parseInt(input());
+        Map<Menu, Integer> menuOrderMap = input(restaurant.getMenuList());
+        System.out.println("선택 완료");
     }
 
 
-    private String input() throws IOException {
-        System.out.print("입력 : ");
-        return br.readLine();
+    private Map<Menu, Integer> input(List<Menu> menuList) throws IOException {
+        System.out.print("메뉴와 수량을 공백으로 구분하여 입력해주세요: ");
+        String[] input = br.readLine().split(" ");
+
+        String menuName = input[0];
+        int quantity = Integer.parseInt(input[1]);
+
+        Menu selectedMenu = null;
+        for (Menu menu : menuList) {
+            if (menu.getName().equals(menuName)) {
+                selectedMenu = menu;
+                break;
+            }
+        }
+
+        if (selectedMenu == null) {
+            throw new IllegalArgumentException("해당 메뉴가 존재하지 않습니다.");
+        }
+
+        Map<Menu, Integer> menuOrderMap = new HashMap<>();
+        menuOrderMap.put(selectedMenu, quantity);
+
+        return menuOrderMap;
     }
 
 
