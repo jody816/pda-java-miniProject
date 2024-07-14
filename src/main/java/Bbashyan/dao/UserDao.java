@@ -1,11 +1,13 @@
 package Bbashyan.dao;
 
+import Bbashyan.model.Bucket;
+import Bbashyan.model.Category;
 import Bbashyan.model.User;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class UserDao {
-
   private static final Map<String, User> map = new HashMap<>();
 
   public User findUserById(String id) {
