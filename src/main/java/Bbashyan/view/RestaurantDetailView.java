@@ -38,11 +38,10 @@ public class RestaurantDetailView {
 
 
     private Map<Menu, Integer> input(List<Menu> menuList) throws IOException {
-        System.out.print("메뉴와 수량을 공백으로 구분하여 입력해주세요: ");
-        String[] input = br.readLine().split(" ");
+        System.out.print("메뉴와 수량을 엔터키로 구분하여 입력해주세요: ");
+        String menuName = br.readLine();
+        int quantity = Integer.parseInt(br.readLine());
 
-        String menuName = input[0];
-        int quantity = Integer.parseInt(input[1]);
 
         Menu selectedMenu = null;
         for (Menu menu : menuList) {
