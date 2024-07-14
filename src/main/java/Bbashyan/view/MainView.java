@@ -1,5 +1,7 @@
 package Bbashyan.view;
 
+import static Bbashyan.validator.BasicValidator.*;
+
 import Bbashyan.controller.MainController;
 import Bbashyan.controller.UserController;
 import Bbashyan.controller.CategoryController;
@@ -26,6 +28,9 @@ public class MainView {
                 System.out.println("***** 2. 회원 가입 *****");
 
                 String input = input();
+
+                isValidateNumber(input);
+
                 int select = Integer.parseInt(input);
                 if (select == 1) {
                     controller.getUserController().displayLogin();
@@ -41,17 +46,23 @@ public class MainView {
                 System.out.println("***** 3. 장바구니 확인 *****");
                 System.out.println("***** 0. 로그아웃 *****");
 
-                int input = Integer.parseInt(input());
+                String input = input();
 
-                if (input == 1) {
+                isValidateNumber(input);
+
+                int select = Integer.parseInt(input);
+
+                if (select == 1) {
                     controller.getUserController().displayUserInfo();
-                } else if (input == 2) {
+                } else if (select == 2) {
                     controller.getCategoryController().displayCategories();
-                } else if (input == 3) {
+                } else if (select == 3) {
                     controller.getUserController().displayBucket();
-
-                } else {
+                } else if (select == 4) {
                     controller.getUserController().logout();
+                } else {
+                    System.out.println("제시된 숫자는 1~4까지입니다.");
+                    System.exit(0);
                 }
             }
         }
