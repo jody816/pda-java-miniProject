@@ -20,7 +20,7 @@ public class BucketView {
         for (Map.Entry<Menu, Integer> entry : orderMenu.entrySet()) {
             Menu menu = entry.getKey();
             int quantity = entry.getValue();
-            System.out.println(menu.getName() + " - " + quantity+"개");
+            System.out.println(menu.getName() + " - " + quantity + "개");
         }
     }
 }

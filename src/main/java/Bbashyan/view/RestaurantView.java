@@ -15,8 +15,10 @@ public class RestaurantView {
     public RestaurantView(RestaurantController restaurantController) {
         this.restaurantController = restaurantController;
     }
+
     private BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-    public void displayCategoriesByCategoryId(List<Restaurant> restaurants) throws IOException{
+
+    public void displayCategoriesByCategoryId(List<Restaurant> restaurants) throws IOException {
         System.out.println("***** 가게 선택 *****");
         for (int i = 0; i < restaurants.size(); i++) {
             Restaurant restaurant = restaurants.get(i);
@@ -24,12 +26,9 @@ public class RestaurantView {
         }
         int categoryId = restaurants.get(1).getCategoryId();
         int restaurantSelect = Integer.parseInt(input());
-        restaurantController.displayRestaurantDetailById(categoryId,restaurantSelect);
+        restaurantController.displayRestaurantDetailById(categoryId, restaurantSelect);
 
     }
-
-
-
 
     private String input() throws IOException {
         System.out.print("입력 : ");

@@ -9,7 +9,7 @@ public class RestaurantDao {
 
     private static final Map<String, Restaurant> map = new LinkedHashMap<>();
 
-    public RestaurantDao(){
+    public RestaurantDao() {
         map.put("밥플러스", Restaurant.builder()
                 .id(1)
                 .name("밥플러스")
@@ -17,7 +17,7 @@ public class RestaurantDao {
                 .address("서울특별시 성동구 성수동2가 315-61번지 202 203호")
                 .description("누구나 아는 그곳. 밥플러스 입니다.")
                 .menuList(List.of(
-                        new Menu("어제의 메뉴",700),
+                        new Menu("어제의 메뉴", 700),
                         new Menu("오늘의 메뉴", 800),
                         new Menu("내일의 메뉴", 900)
                 ))
@@ -176,6 +176,7 @@ public class RestaurantDao {
         }
         return restaurants;
     }
+
     public Restaurant findOneByRestaurantId(int categoryId, int restaurantId) {
         for (Restaurant restaurant : map.values()) {
             if (restaurant.getCategoryId() == categoryId && restaurant.getId() == restaurantId) {

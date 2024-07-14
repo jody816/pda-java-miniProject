@@ -4,7 +4,7 @@ import java.io.IOException;
 
 public class Main {
 
-  public static void main(String[] args) throws IOException {
-    MainApplication.run();
-  }
+    public static void main(String[] args) throws IOException {
+        MainApplication.run();
+    }
 }

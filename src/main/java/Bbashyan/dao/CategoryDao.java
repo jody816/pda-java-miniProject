@@ -11,18 +11,18 @@ import java.util.List;
 import java.util.Map;
 
 public class CategoryDao {
-  private static final Map<Integer, Category> map = new HashMap<>();
+    private static final Map<Integer, Category> map = new HashMap<>();
 
-  public CategoryDao() {
-    int i = 1;
-    map.put(i, Category.builder().id(i++).name("한식").build());
-    map.put(i, Category.builder().id(i++).name("중식").build());
-    map.put(i, Category.builder().id(i++).name("양식").build());
-    map.put(i, Category.builder().id(i++).name("일식").build());
-  }
-  public List<Category> findAll() {
+    public CategoryDao() {
+        int i = 1;
+        map.put(i, Category.builder().id(i++).name("한식").build());
+        map.put(i, Category.builder().id(i++).name("중식").build());
+        map.put(i, Category.builder().id(i++).name("양식").build());
+        map.put(i, Category.builder().id(i++).name("일식").build());
+    }
 
-    return new ArrayList<>(map.values());
-  }
+    public List<Category> findAll() {
+        return new ArrayList<>(map.values());
+    }
 
 }

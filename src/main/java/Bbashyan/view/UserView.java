@@ -11,8 +11,9 @@ import java.io.InputStreamReader;
 import java.util.Map;
 
 public class UserView {
-    private  UserController controller;
-    private  BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+    private UserController controller;
+    private BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
     public UserView(UserController controller) {
         this.controller = controller;
@@ -43,16 +44,18 @@ public class UserView {
         controller.signUp(user);
         System.out.println("***** 회원가입이 완료되었습니다. *****");
     }
+
     public void displayWrongLogin() throws IOException {
         System.out.println("***** 1. 회원가입 *****");
         System.out.println("***** 2. 재입력 *****");
         int userInput = Integer.parseInt(input());
-        if (userInput == 1){
+        if (userInput == 1) {
             displaySignUp();
         } else if (userInput == 2) {
             displayLogin();
         }
     }
+
     public void displayUserInfo(User user) throws IOException {
         System.out.println("***** 유저 정보 페이지 *****");
         System.out.println("-----\n" + user.toString() + "-----\n");
