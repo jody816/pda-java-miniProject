@@ -2,6 +2,8 @@ package Bbashyan.controller;
 
 import Bbashyan.model.User;
 import Bbashyan.view.MainView;
+import Bbashyan.view.RestaurantView;
+
 import java.io.IOException;
 
 public class MainController {
@@ -9,13 +11,15 @@ public class MainController {
     private MainView mainView;
     private UserController userController;
     private CategoryController categoryController;
+    private RestaurantController restaurantController;
     private BucketController bucketController;
 
     private MainController() {
         userController = new UserController();
-        categoryController = new CategoryController();
         bucketController = new BucketController();
         mainView = new MainView(this);
+
+        initializeControllers();
     }
 
     public static MainController getInstance() {
@@ -23,6 +27,15 @@ public class MainController {
             instance = new MainController();
         }
         return instance;
+    }
+
+    private void initializeControllers() {
+        restaurantController = new RestaurantController();
+        RestaurantView restaurantView = new RestaurantView(restaurantController);
+        restaurantController.setRestaurantView(restaurantView);
+
+        categoryController = new CategoryController();
+        categoryController.setRestaurantController(restaurantController);
     }
 
     public void start() throws IOException {
