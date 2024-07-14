@@ -58,7 +58,5 @@ public class MainController {
         return bucketController;
     }
 
-    public User getCurrentUser() {
-        return userController.getCurrentUser();
-    }
+
 }

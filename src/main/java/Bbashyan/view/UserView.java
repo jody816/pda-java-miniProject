@@ -4,6 +4,7 @@ import Bbashyan.controller.UserController;
 import Bbashyan.model.Bucket;
 import Bbashyan.model.Menu;
 import Bbashyan.model.User;
+import Bbashyan.validator.BasicValidator;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -20,7 +21,16 @@ public class UserView {
 
     public void displayLogin() throws IOException {
         System.out.println("***** 아이디와 비밀번호를 공백으로 입력해주세요 ******");
-        String[] inputs = input().split(" ");
+        String[] inputs;
+        while (true) {
+            inputs = input().split(" ");
+            if (inputs.length == 2) {
+                break;
+            } else {
+                System.out.println("잘못된 입력입니다. 아이디와 비밀번호를 공백으로 구분하여 입력해주세요.");
+            }
+        }
+
         String id = inputs[0];
         String pw = inputs[1];
 
@@ -30,6 +40,15 @@ public class UserView {
     public void displaySignUp() throws IOException {
         System.out.println("***** 아이디 / 이름 / 비밀번호 / 주소 순으로 공백을 두어 입력해주세요. *****");
         String[] inputs = input().split(" ");
+
+        while (true) {
+            inputs = input().split(" ");
+            if (inputs.length == 4) {
+                break;
+            } else {
+                System.out.println("잘못된 입력입니다. 아이디 / 이름 / 비밀번호 / 주소 순으로 공백을 두어 입력해주세요.");
+            }
+        }
 
         User user = User.builder()
                 .id(inputs[0])
@@ -43,10 +62,11 @@ public class UserView {
         controller.signUp(user);
         System.out.println("***** 회원가입이 완료되었습니다. *****");
     }
-    public void displayWrongLogin() throws IOException {
+    public void displayReLogin() throws IOException {
         System.out.println("***** 1. 회원가입 *****");
         System.out.println("***** 2. 재입력 *****");
         int userInput = Integer.parseInt(input());
+        BasicValidator.isValidateNumber(input());
         if (userInput == 1){
             displaySignUp();
         } else if (userInput == 2) {
@@ -62,7 +82,7 @@ public class UserView {
         System.out.println("***** 0. 로그아웃 *****");
 
         int userInput = Integer.parseInt(input());
-
+        BasicValidator.isValidateNumber(input());
         if (userInput == 1) {
             System.out.println("***** 주소 변경 *****");
             String inputAddress = input();

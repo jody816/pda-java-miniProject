@@ -21,7 +21,7 @@ public class UserController {
         }
         else{
             System.out.println("***** 로그인 실패 *****");
-            view.displayWrongLogin();
+            view.displayReLogin();
         }
     }
 
