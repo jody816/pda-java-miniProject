@@ -21,9 +21,9 @@ public class MainView {
     }
 
     public void displayMainMenu() throws IOException {
-        while(true) {
+        while (true) {
             System.out.println("Loading...");
-            if (controller.getUserController().getCurrentUser()==null) {
+            if (controller.getUserController().getCurrentUser() == null) {
                 System.out.println("***** 1. 로그인   *****");
                 System.out.println("***** 2. 회원 가입 *****");
 
@@ -37,9 +37,7 @@ public class MainView {
                 } else if (select == 2) {
                     controller.getUserController().displaySignUp();
                 }
-            }
-
-            else {
+            } else {
                 System.out.println("***** 메인 페이지 *****");
                 System.out.println("***** 1. 유저 정보 확인 *****");
                 System.out.println("***** 2. 음식 카테고리 선택 *****");
@@ -58,10 +56,10 @@ public class MainView {
                     controller.getCategoryController().displayCategories();
                 } else if (select == 3) {
                     controller.getUserController().displayBucket();
-                } else if (select == 4) {
+                } else if (select == 0) {
                     controller.getUserController().logout();
                 } else {
-                    System.out.println("제시된 숫자는 1~4까지입니다.");
+                    System.out.println("올바른 숫자를 입력해주세요.");
                     System.exit(0);
                 }
             }

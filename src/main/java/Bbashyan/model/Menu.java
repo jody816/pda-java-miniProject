@@ -1,7 +1,7 @@
 package Bbashyan.model;
 
 public class Menu {
-    private  String name;
+    private String name;
     private int price;
 
     public Menu(String name, int price) {

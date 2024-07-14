@@ -17,7 +17,7 @@ public class RestaurantDetailView {
     private BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
     public void displayRestaurantDetail(Restaurant restaurant) throws IOException {
-        System.out.println("");
+        System.out.println();
         System.out.println("    ____||____");
         System.out.println("   ///////////\\");
         System.out.println("  ///////////  \\");

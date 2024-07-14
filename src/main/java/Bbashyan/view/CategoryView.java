@@ -12,6 +12,7 @@ public class CategoryView {
     private CategoryController controller;
 
     private BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
     public CategoryView(CategoryController controller) {
         this.controller = controller;
     }
@@ -27,6 +28,7 @@ public class CategoryView {
         controller.getRestaurantController().displayRestaurantByCategoryId(categorySelect);
 
     }
+
     private String input() throws IOException {
         System.out.print("입력 : ");
         return br.readLine();
