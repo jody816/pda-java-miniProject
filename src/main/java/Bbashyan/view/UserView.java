@@ -66,7 +66,6 @@ public class UserView {
         System.out.println("***** 1. 회원가입 *****");
         System.out.println("***** 2. 재입력 *****");
         int userInput = Integer.parseInt(input());
-        BasicValidator.isValidateNumber(input());
         if (userInput == 1){
             displaySignUp();
         } else if (userInput == 2) {
@@ -82,7 +81,6 @@ public class UserView {
         System.out.println("***** 0. 로그아웃 *****");
 
         int userInput = Integer.parseInt(input());
-        BasicValidator.isValidateNumber(input());
         if (userInput == 1) {
             System.out.println("***** 주소 변경 *****");
             String inputAddress = input();
