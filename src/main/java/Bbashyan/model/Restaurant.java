@@ -7,6 +7,7 @@ import lombok.Getter;
 @Getter
 @Builder
 public class Restaurant {
+    private int id;
     private String name;
     private List<Menu> menuList;
     private String address;
