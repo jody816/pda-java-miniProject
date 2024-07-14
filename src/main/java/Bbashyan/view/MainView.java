@@ -56,14 +56,10 @@ public class MainView {
                     controller.getCategoryController().displayCategories();
                 } else if (select == 3) {
                     controller.getUserController().displayBucket();
-<<<<<<< HEAD
-                } else {
-=======
-                } else if (select == 4) {
->>>>>>> 1b60df8fec9dc78e04c212b31081dbc6c7f9bc63
+                } else if (select == 0) {
                     controller.getUserController().logout();
                 } else {
-                    System.out.println("제시된 숫자는 1~4까지입니다.");
+                    System.out.println("올바른 숫자를 입력해주세요.");
                     System.exit(0);
                 }
             }
