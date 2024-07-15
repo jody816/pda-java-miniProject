@@ -8,7 +8,7 @@ import java.io.IOException;
 public class MainApplication {
 
   public static void run() throws IOException {
-    MainController controller = MainController.getMainController();
+    MainController controller = MainController.getInstance();
     try {
       controller.displayMainMenu();
     } catch (Exception e) {

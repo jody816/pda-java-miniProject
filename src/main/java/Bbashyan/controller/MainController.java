@@ -30,7 +30,9 @@ public class MainController {
         restaurantController = new RestaurantController();
 
         RestaurantView restaurantView = new RestaurantView(restaurantController);
+        RestaurantDetailView restaurantDetailView = new RestaurantDetailView(bucketController);
         restaurantController.setRestaurantView(restaurantView);
+        restaurantController.setRestaurantDetailView(restaurantDetailView);
 
         categoryController = new CategoryController();
         categoryController.setRestaurantController(restaurantController);
@@ -39,7 +41,7 @@ public class MainController {
 
     }
 
-    public static MainController getMainController() {
+    public static MainController getInstance() {
         if (mainController == null) {
             mainController = new MainController();
         }

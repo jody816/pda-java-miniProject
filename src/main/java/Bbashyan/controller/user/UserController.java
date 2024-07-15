@@ -1,9 +1,7 @@
 package Bbashyan.controller.user;
 
 import Bbashyan.controller.MainController;
-import Bbashyan.model.user.User;
 import Bbashyan.service.user.UserService;
-import Bbashyan.utils.Session;
 import Bbashyan.view.user.UserView;
 import lombok.Getter;
 
