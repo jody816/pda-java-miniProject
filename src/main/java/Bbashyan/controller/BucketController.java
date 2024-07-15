@@ -4,10 +4,10 @@ import Bbashyan.model.Bucket;
 import Bbashyan.view.BucketView;
 
 public class BucketController {
-    private BucketView view=new BucketView(this);
+    private BucketView view = new BucketView(this);
 
-
-    public void displayBucket(Bucket bucket){
+    public void displayBucket(Bucket bucket) {
         view.displayBucket(bucket);
+
     }
 }

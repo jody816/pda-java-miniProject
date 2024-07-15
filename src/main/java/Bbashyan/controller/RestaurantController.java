@@ -16,13 +16,13 @@ public class RestaurantController {
     private RestaurantView restaurantView;
     private RestaurantDetailView restaurantDetailView = new RestaurantDetailView();
 
-    //service로 빠져야함
+    //TODO:service로 빠져야함
     public void displayRestaurantByCategoryId(int categoryId) throws IOException {
         List<Restaurant> restaurants = restaurantDao.findByCategoryId(categoryId);
         restaurantView.displayCategoriesByCategoryId(restaurants);
     }
 
-    //service로 빠져야함
+    //TODO:service로 빠져야함
     public void displayRestaurantDetailById(int categoryId, int restaurantId) throws IOException {
         Restaurant restaurant = restaurantDao.findOneByRestaurantId(categoryId, restaurantId);
         restaurantDetailView.displayRestaurantDetail(restaurant);

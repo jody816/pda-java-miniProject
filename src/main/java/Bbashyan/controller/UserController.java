@@ -9,13 +9,13 @@ import java.io.IOException;
 
 @Getter
 public class UserController {
-    private UserDao userDao=new UserDao();
-    private UserView view=new UserView(this);
+    private UserDao userDao = new UserDao();
+    private UserView view = new UserView(this);
     private User currentUser;
 
-    public void login(String id, String password) throws IOException{
-        User user=userDao.findUserById(id);
-        if(user!=null && user.getPassword().equals(password)){
+    public void login(String id, String password) throws IOException {
+        User user = userDao.findUserById(id);
+        if (user != null && user.getPassword().equals(password)) {
             System.out.println("***** 로그인을 성공했습니다 *****");
             currentUser = user;
         } else {
@@ -27,7 +27,7 @@ public class UserController {
     public void signUp(User user) {
         userDao.save(user);
     }
-    
+
     public void updateAddress(String address) throws IOException {
         currentUser.setAddress(address);
         System.out.println("*** 주소가 변경되었습니다. ***");
