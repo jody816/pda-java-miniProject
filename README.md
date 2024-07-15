@@ -19,7 +19,11 @@
 - 과제 기간에 맞춰 개발하기에는 volume이 너무 크고 학습에 시간이 오래 걸리는 이슈
 
 <br><br>
-이러한 한계점 이슈 때문에 Spring MVC로 고려하여 설계하기 보다는 User Flow를 통해 간단히 도식화 한 후 설계하는 식으로 코드를 구성하도록 변경<br><br><br>
+이러한 한계점 이슈 때문에 Spring MVC로 고려하여 설계하기 보다는 class diagram을 먼저 구상하고, User Flow를 통해 간단히 도식화 한 후 설계하는 식으로 코드를 구성하도록 변경<br><br><br>
+
+## Class Diagram
+<img src="https://github.com/user-attachments/assets/c8218701-b147-4a5d-bfd1-5132fbbaf667" width="40%">
+<br><br>
 
 ## User Flow
 ![UserFlow](https://github.com/user-attachments/assets/e470f8e4-e95e-44fc-8e08-f4955ea0ad67)
