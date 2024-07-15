@@ -24,6 +24,5 @@ public class CategoryView {
 
         int categorySelect = Integer.parseInt(input());
         categoryController.getRestaurantController().displayRestaurantByCategoryId(categorySelect);
-
     }
 }

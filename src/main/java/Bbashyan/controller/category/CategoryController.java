@@ -9,6 +9,7 @@ import lombok.Setter;
 import java.io.IOException;
 
 public class CategoryController {
+
     private final CategoryView categoryView = new CategoryView(this);
     private final CategoryService categoryService = new CategoryService();
     @Getter

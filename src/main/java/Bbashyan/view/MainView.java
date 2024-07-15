@@ -8,31 +8,30 @@ import Bbashyan.controller.MainController;
 import java.io.IOException;
 
 public class MainView {
-    private final MainController controller;
-    public MainView(MainController controller) {
-        this.controller = controller;
+    private final MainController mainController;
+
+    public MainView(MainController mainController) {
+        this.mainController = mainController;
     }
 
     public void displayMainMenu() throws IOException {
-        while(true) {
+        while (true) {
             System.out.println("Loading...");
-            if (controller.getUserController().getCurrentUser()==null) {
+            if (mainController.getUserController().getCurrentUser() == null) {
                 System.out.println("***** 1. 로그인   *****");
                 System.out.println("***** 2. 회원 가입 *****");
 
-                String input = input();
+                String userInput = input();
 
-                isValidateNumber(input);
+                isValidateNumber(userInput);
 
-                int select = Integer.parseInt(input);
+                int select = Integer.parseInt(userInput);
                 if (select == 1) {
-                    controller.getUserController().displayLogin();
+                    mainController.getUserController().displayLogin();
                 } else if (select == 2) {
-                    controller.getUserController().displaySignUp();
+                    mainController.getUserController().displaySignUp();
                 }
-            }
-
-            else {
+            } else {
                 System.out.println("***** 메인 페이지 *****");
                 System.out.println("***** 1. 유저 정보 확인 *****");
                 System.out.println("***** 2. 음식 카테고리 선택 *****");
@@ -46,13 +45,13 @@ public class MainView {
                 int select = Integer.parseInt(MainInput);
 
                 if (select == 1) {
-                    controller.getUserController().displayUserInfo();
+                    mainController.getUserController().displayUserInfo();
                 } else if (select == 2) {
-                    controller.getCategoryController().displayCategories();
+                    mainController.getCategoryController().displayCategories();
                 } else if (select == 3) {
-                    controller.getUserController().displayBucket();
+                    mainController.getUserController().displayBucket();
                 } else if (select == 4) {
-                    controller.getUserController().logout();
+                    mainController.getUserController().logout();
                 } else {
                     System.out.println("제시된 숫자는 1~4까지입니다.");
                     System.exit(0);

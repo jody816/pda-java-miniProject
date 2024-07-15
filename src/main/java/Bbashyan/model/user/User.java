@@ -20,13 +20,13 @@ public class User {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
+        StringBuilder userInfo = new StringBuilder();
 
-        sb.append("아이디: ").append(id).append("\n")
+        userInfo.append("아이디: ").append(id).append("\n")
                 .append("이름: ").append(name).append("\n")
                 .append("잔액: ").append(credit).append(" ￦").append("\n");
 
-        return sb.toString();
+        return userInfo.toString();
     }
 
     public void plusCredit(int credit) {

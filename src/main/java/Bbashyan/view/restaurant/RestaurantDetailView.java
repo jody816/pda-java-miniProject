@@ -10,10 +10,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import static Bbashyan.utils.InputUtil.inputMenu;
+
 
 public class RestaurantDetailView {
-
-
     private final BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
     public void displayRestaurantDetail(Restaurant restaurant) throws IOException {
@@ -32,33 +32,7 @@ public class RestaurantDetailView {
             System.out.println(" - " + menu.getName() + ": " + menu.getPrice() + "원");
         }
         System.out.println("===================");
-        Map<Menu, Integer> menuOrderMap = input(restaurant.getMenuList());
+        Map<Menu, Integer> menuOrderMap = inputMenu(restaurant.getMenuList());
         System.out.println("선택 완료");
     }
-
-
-    private Map<Menu, Integer> input(List<Menu> menuList) throws IOException {
-        System.out.print("메뉴와 수량을 엔터키로 구분하여 입력해주세요 : ");
-        String menuName = br.readLine();
-        int quantity = Integer.parseInt(br.readLine());
-
-        Menu selectedMenu = null;
-        for (Menu menu : menuList) {
-            if (menu.getName().equals(menuName)) {
-                selectedMenu = menu;
-                break;
-            }
-        }
-
-        if (selectedMenu == null) {
-            throw new IllegalArgumentException("해당 메뉴가 존재하지 않습니다.");
-        }
-
-        Map<Menu, Integer> menuOrderMap = new HashMap<>();
-        menuOrderMap.put(selectedMenu, quantity);
-
-        return menuOrderMap;
-    }
-
-
 }

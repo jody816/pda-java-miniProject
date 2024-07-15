@@ -6,7 +6,8 @@ import lombok.NoArgsConstructor;
 
 @NoArgsConstructor
 public class BucketController {
-    private final BucketView bucketView = new BucketView(this);
+
+    private final BucketView bucketView = new BucketView();
 
     public void displayBucket(Bucket bucket) {
         bucketView.displayBucket(bucket);

@@ -9,7 +9,6 @@ import java.util.NoSuchElementException;
 public class UserService {
     private final UserDao userDao = new UserDao();
 
-
     public void signUp(String id, String name, String password, String address) {
         User user = User.builder()
                 .id(id)
