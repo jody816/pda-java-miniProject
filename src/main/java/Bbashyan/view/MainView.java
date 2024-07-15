@@ -4,6 +4,7 @@ import static Bbashyan.utils.InputUtil.input;
 import static Bbashyan.validator.MainValidator.*;
 
 import Bbashyan.controller.MainController;
+import Bbashyan.utils.Session;
 
 import java.io.IOException;
 
@@ -16,7 +17,7 @@ public class MainView {
     public void displayMainMenu() throws IOException {
         while(true) {
             System.out.println("Loading...");
-            if (controller.getUserController().getCurrentUser()==null) {
+            if (Session.getCurrentUser()==null) {
                 System.out.println("***** 1. 로그인   *****");
                 System.out.println("***** 2. 회원 가입 *****");
 

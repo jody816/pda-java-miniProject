@@ -1,5 +1,6 @@
 package Bbashyan.view.restaurant;
 
+import Bbashyan.controller.bucket.BucketController;
 import Bbashyan.model.menu.Menu;
 import Bbashyan.model.restaurant.Restaurant;
 
@@ -13,8 +14,12 @@ import java.util.Map;
 
 public class RestaurantDetailView {
 
-
+    private final BucketController bucketController;
     private final BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+    public RestaurantDetailView(BucketController bucketController) {
+        this.bucketController = bucketController;
+    }
 
     public void displayRestaurantDetail(Restaurant restaurant) throws IOException {
         System.out.println();
@@ -33,7 +38,8 @@ public class RestaurantDetailView {
         }
         System.out.println("===================");
         Map<Menu, Integer> menuOrderMap = input(restaurant.getMenuList());
-        System.out.println("선택 완료");
+        bucketController.addBucket(menuOrderMap);
+        System.out.println("장바구니에 담겼습니다");
     }
 
 

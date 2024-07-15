@@ -14,7 +14,7 @@ public class RestaurantController {
 
     private RestaurantView restaurantView;
     private RestaurantService restaurantService = new RestaurantService();
-    private RestaurantDetailView restaurantDetailView = new RestaurantDetailView();
+    private RestaurantDetailView restaurantDetailView;
 
     public void displayRestaurantByCategoryId(int categoryId) throws IOException {
         List<Restaurant> restaurants = restaurantService.getRestaurants(categoryId);

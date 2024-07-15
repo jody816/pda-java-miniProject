@@ -13,7 +13,7 @@ public class BucketView {
 
     public void displayBucket(Bucket bucket) {
         System.out.println("***** 장바구니 페이지 *****");
-        Map<Menu, Integer> orderMenu = bucket.getOrderMenu();
+        Map<Menu, Integer> orderMenu = bucket.getOrderMenus();
 
         for (Map.Entry<Menu, Integer> entry : orderMenu.entrySet()) {
             Menu menu = entry.getKey();

@@ -5,6 +5,7 @@ import Bbashyan.controller.category.CategoryController;
 import Bbashyan.controller.restaurant.RestaurantController;
 import Bbashyan.controller.user.UserController;
 import Bbashyan.view.MainView;
+import Bbashyan.view.restaurant.RestaurantDetailView;
 import Bbashyan.view.restaurant.RestaurantView;
 import lombok.Getter;
 
@@ -27,9 +28,10 @@ public class MainController {
         bucketController = new BucketController();
 
         restaurantController = new RestaurantController();
-
+        RestaurantDetailView restaurantDetailView = new RestaurantDetailView(bucketController);
         RestaurantView restaurantView = new RestaurantView(restaurantController);
         restaurantController.setRestaurantView(restaurantView);
+        restaurantController.setRestaurantDetailView(restaurantDetailView);
 
         categoryController = new CategoryController();
         categoryController.setRestaurantController(restaurantController);

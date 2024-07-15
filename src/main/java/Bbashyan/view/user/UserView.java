@@ -85,7 +85,7 @@ public class UserView {
         System.out.println("***** 장바구니 보기 *****");
         System.out.println(bucket.getRestaurant());
         System.out.println("Total Price: " + bucket.getTotalPrice());
-        for (Map.Entry<Menu, Integer> entry : bucket.getOrderMenu().entrySet()) {
+        for (Map.Entry<Menu, Integer> entry : bucket.getOrderMenus().entrySet()) {
             System.out.println("Menu: " + entry.getKey().getName() + " Quantity: " + entry.getValue());
         }
     }

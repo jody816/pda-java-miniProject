@@ -1,14 +1,18 @@
 package Bbashyan.controller.bucket;
 
 import Bbashyan.model.bucket.Bucket;
-import Bbashyan.view.bucket.BucketView;
+import Bbashyan.model.menu.Menu;
+import Bbashyan.service.bucket.BucketService;
+import Bbashyan.utils.Session;
 import lombok.NoArgsConstructor;
+
+import java.util.Map;
 
 @NoArgsConstructor
 public class BucketController {
-    private final BucketView bucketView = new BucketView(this);
 
-    public void displayBucket(Bucket bucket) {
-        bucketView.displayBucket(bucket);
+    private static final BucketService bucketService = new BucketService();
+    public void addBucket(Map<Menu,Integer> orderedMenu){
+        bucketService.addBucket(orderedMenu);
     }
 }

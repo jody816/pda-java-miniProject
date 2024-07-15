@@ -3,21 +3,22 @@ package Bbashyan.controller.user;
 import Bbashyan.controller.MainController;
 import Bbashyan.model.user.User;
 import Bbashyan.service.user.UserService;
+import Bbashyan.utils.Session;
 import Bbashyan.view.user.UserView;
 import lombok.Getter;
 
 import java.io.IOException;
 import java.util.NoSuchElementException;
 
+import static Bbashyan.utils.Session.*;
+
 @Getter
 public class UserController {
     private final UserView userView = new UserView(this);
     private final UserService userService = new UserService();
-    private User currentUser;
-
     public void login(String id, String password) throws IOException {
         try {
-            currentUser = userService.login(id, password);
+            setCurrentUser(userService.login(id, password));
             System.out.println("***** 로그인을 성공했습니다 *****");
         } catch(NoSuchElementException e) {
             System.out.println("***** 로그인 실패 *****");
@@ -36,34 +37,34 @@ public class UserController {
     }
 
     public void updateAddress(String address) {
-        currentUser.setAddress(address);
-        userService.update(currentUser);
+        getCurrentUser().setAddress(address);
+        userService.update(getCurrentUser());
         System.out.println("*** 주소가 변경되었습니다. ***");
 
     }
 
     public void addCredit(int amount) {
-        currentUser.plusCredit(amount);
-        userService.update(currentUser);
+        getCurrentUser().plusCredit(amount);
+        userService.update(getCurrentUser());
         System.out.println("***** 충전이 완료되었습니다. *****");
 
     }
 
     public void payingCredit(int amount) throws IOException {
-        currentUser.minusCredit(amount);
-        userService.update(currentUser);
+        getCurrentUser().minusCredit(amount);
+        userService.update(getCurrentUser());
         System.out.println("***** 결제가 완료되었습니다. *****");
-        userView.displayUserInfo(currentUser);
+        userView.displayUserInfo(getCurrentUser());
     }
 
     public void logout() throws IOException {
-        currentUser = null;
+        setCurrentUser(null);
         System.out.println("***** 로그아웃 되었습니다. *****");
         MainController.getInstance().displayMainMenu();
     }
 
     public void displayUserInfo() throws IOException {
-        userView.displayUserInfo(currentUser);
+        userView.displayUserInfo(getCurrentUser());
     }
 
     public void displayLogin() throws IOException {
@@ -75,7 +76,7 @@ public class UserController {
     }
 
     public void displayBucket() {
-        userView.displayBucket(currentUser.getBucket());
+        userView.displayBucket(getCurrentUser().getBucket());
     }
 
 }
