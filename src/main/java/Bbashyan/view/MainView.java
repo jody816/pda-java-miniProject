@@ -9,6 +9,33 @@ import Bbashyan.utils.Session;
 import java.io.IOException;
 
 public class MainView {
+
+    private final static String BBASHA_LOGO = "\n" +
+            "                      ,---~~                      \n" +
+            "                   .,---~~~~~~            @       \n" +
+            "     @ @ @ @ @    ,--,---~-~~~~*     @    @       \n" +
+            "     @ @ @ @ @    , ,---~~~; ~;!=    @    @@@     \n" +
+            "     @@@ @@@ @    ,~-   #-;:~:::*    @@   @       \n" +
+            "     @ @ @ @ @@@ ~      $.= ~-:!*   @#@   @       \n" +
+            "     @ @ @ @ @   :~   ,... = -:!= ,@@  @@ @@@     \n" +
+            "     @@@ @@@ @   !$ ..,#...@ :*==         @       \n" +
+            "             @   , $$$   :...!*$          @       \n" +
+            "             @     .   # ..,,-                    \n" +
+            "                     .. .,,--:   ,,,,,,.          \n" +
+            "                          =~:!   ~~~-~~~*         \n" +
+            "                   #  ,,--~;!=*  ~~    -!         \n" +
+            "                  #,- ;!==#*~!*  ~     ~!         \n" +
+            "                 ,*@     ,~~~-* .~     -!         \n" +
+            "                 !=      .-;::# .-~   ~~!         \n" +
+            "               ;,*$    :;!!!!##  ~~~~~~~*         \n" +
+            "               $~*#   ~!*$####$#=######           \n" +
+            "           ,;:;,~*#   ;*==**!;;!,,                \n" +
+            "          $*####,~*   !* ;;!!!-!##;~.             \n" +
+            "          *~   =#,~=  ;* !!!;,;*~:~$~             \n" +
+            "          #-   .# ~,--------,~#~   =:-            \n" +
+            "          *#,-.*$             #*~,.*#             \n" +
+            "           $=*$*               $**#    \n";
+
     private final MainController mainController;
 
     public MainView(MainController mainController) {
@@ -16,6 +43,9 @@ public class MainView {
     }
 
     public void displayMainMenu() throws IOException {
+
+        System.out.println(BBASHA_LOGO);
+
         while (true) {
             System.out.println("Loading...");
             if (Session.getCurrentUser()==null) {
@@ -33,11 +63,12 @@ public class MainView {
                     mainController.getUserController().displaySignUp();
                 }
             } else {
+                System.out.println("현재 접속 아이디 - [" + Session.getCurrentUser().getId() + "]");
                 System.out.println("***** 메인 페이지 *****");
                 System.out.println("***** 1. 유저 정보 확인 *****");
                 System.out.println("***** 2. 음식 카테고리 선택 *****");
                 System.out.println("***** 3. 장바구니 확인 *****");
-                System.out.println("***** 0. 로그아웃 *****");
+                System.out.println("***** 4. 로그아웃 *****");
 
                 String MainInput = input();
 
