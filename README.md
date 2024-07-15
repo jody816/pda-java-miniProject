@@ -1,20 +1,17 @@
-#Bbasha Project
-
 ## 초기 설계도
-초기에는 학습과 추상화를 통한 확장성을 고려하고자 Spring MVC를 참고하여 개발.
+초기에는 학습과 추상화를 통한 확장성을 고려하고자 Spring MVC를 참고하여 개발.<br><br>
+초기에는 View와 Controller의 호출 관계를 고민하며 코드를 작성하고, View단 까지 백엔드에서 개발하다보니 원하는 View를 띄우기 위해서는 controller->view->controller->view->... 와 같은 방식으로
+view를 보기 위한 사용자의 depth가 너무 깊은 이슈가 발생.<br><br>
+또한 동적으로 page를 이동하거나 띄울 수 없고,정해진 순서로만 로직이 흐르는 이슈가 발생하여 각 View page를 url과 같은 형식으로 mapping하여 랜더링 하는 느낌으로 구현하도록 변경<br><br>
+
 
 ### Spring MVC 설계도
 ![image](https://github.com/user-attachments/assets/9001c724-e1f5-482c-bbb0-4afbb48d4589)
 <br>
-### Bbsha의 초기 MVC 설계도 & 패키지 구조<br>
+### 개선된 Bbsha의 MVC 설계도 & 패키지 구조<br>
 
 <img src="https://github.com/user-attachments/assets/9d89b1e5-2590-4988-8928-16cd3d71f272" width="20%">
 <br><br>
-
-초기에는 View와 Controller의 호출 관계를 고민하며 코드를 작성하고, View단 까지 백엔드에서 개발하다보니 원하는 View를 띄우기 위해서는 controller->view->controller->view->... 와 같은 방식으로
-view를 보기 위한 사용자의 depth가 너무 깊은 이슈가 발생.
-
-또한 동적으로 page를 이동하거나 띄울 수 없고,정해진 순서로만 로직이 흐르는 이슈가 발생하여 각 View page를 url과 같은 형식으로 mapping하여 랜더링 하는 느낌으로 구현하도록 변경<br><br>
 
 
 ![우리 설계도 drawio](https://github.com/user-attachments/assets/6d0612bd-0527-4182-85e9-e33f42251e6d)<br><br>
