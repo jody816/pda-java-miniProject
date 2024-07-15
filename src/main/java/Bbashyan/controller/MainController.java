@@ -1,8 +1,11 @@
 package Bbashyan.controller;
 
-import Bbashyan.model.User;
+import Bbashyan.controller.bucket.BucketController;
+import Bbashyan.controller.category.CategoryController;
+import Bbashyan.controller.restaurant.RestaurantController;
+import Bbashyan.controller.user.UserController;
 import Bbashyan.view.MainView;
-import Bbashyan.view.RestaurantView;
+import Bbashyan.view.restaurant.RestaurantView;
 import lombok.Getter;
 
 import java.io.IOException;
@@ -11,18 +14,28 @@ import java.io.IOException;
 public class MainController {
 
     private static MainController instance;
-    private MainView mainView;
-    private UserController userController;
-    private CategoryController categoryController;
-    private RestaurantController restaurantController;
-    private BucketController bucketController;
+
+    private final UserController userController;
+    private final CategoryController categoryController;
+    private final RestaurantController restaurantController;
+    private final BucketController bucketController;
+
+    private final MainView mainView;
 
     private MainController() {
         userController = new UserController();
         bucketController = new BucketController();
+
+        restaurantController = new RestaurantController();
+
+        RestaurantView restaurantView = new RestaurantView(restaurantController);
+        restaurantController.setRestaurantView(restaurantView);
+
+        categoryController = new CategoryController();
+        categoryController.setRestaurantController(restaurantController);
+
         mainView = new MainView(this);
 
-        initializeControllers();
     }
 
     public static MainController getInstance() {
@@ -30,19 +43,6 @@ public class MainController {
             instance = new MainController();
         }
         return instance;
-    }
-
-    private void initializeControllers() {
-        restaurantController = new RestaurantController();
-        RestaurantView restaurantView = new RestaurantView(restaurantController);
-        restaurantController.setRestaurantView(restaurantView);
-
-        categoryController = new CategoryController();
-        categoryController.setRestaurantController(restaurantController);
-    }
-
-    public void start() throws IOException {
-        mainView.displayMainMenu();
     }
 
     public void displayMainMenu() throws IOException {

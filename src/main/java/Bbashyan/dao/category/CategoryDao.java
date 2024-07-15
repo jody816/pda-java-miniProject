@@ -1,9 +1,6 @@
-package Bbashyan.dao;
+package Bbashyan.dao.category;
 
-import Bbashyan.model.Category;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import Bbashyan.model.category.Category;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -18,7 +15,7 @@ public class CategoryDao {
     map.put(i, Category.builder().id(i++).name("한식").build());
     map.put(i, Category.builder().id(i++).name("중식").build());
     map.put(i, Category.builder().id(i++).name("양식").build());
-    map.put(i, Category.builder().id(i++).name("일식").build());
+    map.put(i, Category.builder().id(i).name("일식").build());
   }
   public List<Category> findAll() {
 

@@ -1,7 +1,7 @@
-package Bbashyan.view;
+package Bbashyan.view.restaurant;
 
-import Bbashyan.model.Menu;
-import Bbashyan.model.Restaurant;
+import Bbashyan.model.menu.Menu;
+import Bbashyan.model.restaurant.Restaurant;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -14,7 +14,7 @@ import java.util.Map;
 public class RestaurantDetailView {
 
 
-    private BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+    private final BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
     public void displayRestaurantDetail(Restaurant restaurant) throws IOException {
         System.out.println();
@@ -38,10 +38,9 @@ public class RestaurantDetailView {
 
 
     private Map<Menu, Integer> input(List<Menu> menuList) throws IOException {
-        System.out.print("메뉴와 수량을 엔터키로 구분하여 입력해주세요: ");
+        System.out.print("메뉴와 수량을 엔터키로 구분하여 입력해주세요 : ");
         String menuName = br.readLine();
         int quantity = Integer.parseInt(br.readLine());
-
 
         Menu selectedMenu = null;
         for (Menu menu : menuList) {

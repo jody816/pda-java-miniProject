@@ -11,8 +11,8 @@ repositories {
 
 dependencies {
 
-    compileOnly 'org.projectlombok:lombok:1.18.24' // Lombok 의존성 추가
-    annotationProcessor 'org.projectlombok:lombok:1.18.24' // Lombok annotationProcessor 추가
+    compileOnly 'org.projectlombok:lombok:1.18.24'
+    annotationProcessor 'org.projectlombok:lombok:1.18.24'
     testImplementation platform('org.junit:junit-bom:5.9.1')
     testImplementation 'org.junit.jupiter:junit-jupiter'
 }

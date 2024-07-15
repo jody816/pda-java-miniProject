@@ -1,21 +1,14 @@
 package Bbashyan.view;
 
-import static Bbashyan.validator.BasicValidator.*;
+import static Bbashyan.utils.InputUtil.input;
+import static Bbashyan.validator.MainValidator.*;
 
 import Bbashyan.controller.MainController;
-import Bbashyan.controller.UserController;
-import Bbashyan.controller.CategoryController;
-import Bbashyan.controller.BucketController;
-import Bbashyan.model.Bucket;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 
 public class MainView {
-    private MainController controller;
-    private BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-
+    private final MainController controller;
     public MainView(MainController controller) {
         this.controller = controller;
     }
@@ -46,11 +39,11 @@ public class MainView {
                 System.out.println("***** 3. 장바구니 확인 *****");
                 System.out.println("***** 0. 로그아웃 *****");
 
-                String input = input();
+                String MainInput = input();
 
-                isValidateNumber(input);
+                isValidateNumber(MainInput);
 
-                int select = Integer.parseInt(input);
+                int select = Integer.parseInt(MainInput);
 
                 if (select == 1) {
                     controller.getUserController().displayUserInfo();
@@ -68,8 +61,4 @@ public class MainView {
         }
     }
 
-    private String input() throws IOException {
-        System.out.print("입력 : ");
-        return br.readLine();
-    }
 }

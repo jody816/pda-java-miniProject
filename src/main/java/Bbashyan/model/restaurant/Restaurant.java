@@ -1,7 +1,8 @@
-package Bbashyan.model;
+package Bbashyan.model.restaurant;
 
 import java.util.List;
 
+import Bbashyan.model.menu.Menu;
 import lombok.Builder;
 import lombok.Getter;
 

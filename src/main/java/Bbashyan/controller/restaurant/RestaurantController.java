@@ -1,9 +1,9 @@
-package Bbashyan.controller;
+package Bbashyan.controller.restaurant;
 
-import Bbashyan.dao.RestaurantDao;
-import Bbashyan.model.Restaurant;
-import Bbashyan.view.RestaurantDetailView;
-import Bbashyan.view.RestaurantView;
+import Bbashyan.model.restaurant.Restaurant;
+import Bbashyan.service.restaurant.RestaurantService;
+import Bbashyan.view.restaurant.RestaurantDetailView;
+import Bbashyan.view.restaurant.RestaurantView;
 import lombok.Setter;
 
 import java.io.IOException;
@@ -12,19 +12,17 @@ import java.util.List;
 @Setter
 public class RestaurantController {
 
-    private RestaurantDao restaurantDao = new RestaurantDao();
     private RestaurantView restaurantView;
+    private RestaurantService restaurantService = new RestaurantService();
     private RestaurantDetailView restaurantDetailView = new RestaurantDetailView();
 
-    //service로 빠져야함
     public void displayRestaurantByCategoryId(int categoryId) throws IOException {
-        List<Restaurant> restaurants = restaurantDao.findByCategoryId(categoryId);
+        List<Restaurant> restaurants = restaurantService.getRestaurants(categoryId);
         restaurantView.displayCategoriesByCategoryId(restaurants);
     }
 
-    //service로 빠져야함
     public void displayRestaurantDetailById(int categoryId, int restaurantId) throws IOException {
-        Restaurant restaurant = restaurantDao.findOneByRestaurantId(categoryId, restaurantId);
+        Restaurant restaurant = restaurantService.getRestaurant(categoryId, restaurantId);
         restaurantDetailView.displayRestaurantDetail(restaurant);
     }
 }

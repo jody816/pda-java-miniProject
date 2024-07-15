@@ -1,22 +1,20 @@
-package Bbashyan.view;
+package Bbashyan.view.restaurant;
 
-import Bbashyan.controller.RestaurantController;
-import Bbashyan.model.Restaurant;
+import Bbashyan.controller.restaurant.RestaurantController;
+import Bbashyan.model.restaurant.Restaurant;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.List;
+
+import static Bbashyan.utils.InputUtil.input;
 
 public class RestaurantView {
 
-    private RestaurantController restaurantController;
+    private final RestaurantController restaurantController;
 
     public RestaurantView(RestaurantController restaurantController) {
         this.restaurantController = restaurantController;
     }
-
-    private BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
     public void displayCategoriesByCategoryId(List<Restaurant> restaurants) throws IOException {
         System.out.println("***** 가게 선택 *****");
@@ -27,12 +25,6 @@ public class RestaurantView {
         int categoryId = restaurants.get(1).getCategoryId();
         int restaurantSelect = Integer.parseInt(input());
         restaurantController.displayRestaurantDetailById(categoryId, restaurantSelect);
-
-    }
-
-    private String input() throws IOException {
-        System.out.print("입력 : ");
-        return br.readLine();
     }
 
 }

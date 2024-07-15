@@ -1,22 +1,20 @@
-package Bbashyan.view;
+package Bbashyan.view.user;
 
-import Bbashyan.controller.UserController;
-import Bbashyan.model.Bucket;
-import Bbashyan.model.Menu;
-import Bbashyan.model.User;
-import Bbashyan.validator.BasicValidator;
+import Bbashyan.controller.user.UserController;
+import Bbashyan.model.bucket.Bucket;
+import Bbashyan.model.menu.Menu;
+import Bbashyan.model.user.User;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.Map;
 
-public class UserView {
-    private  UserController controller;
-    private  BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+import static Bbashyan.utils.InputUtil.input;
 
-    public UserView(UserController controller) {
-        this.controller = controller;
+public class UserView {
+    private  final UserController userController;
+
+    public UserView(UserController userController) {
+        this.userController = userController;
     }
 
     public void displayLogin() throws IOException {
@@ -34,33 +32,22 @@ public class UserView {
         String id = inputs[0];
         String pw = inputs[1];
 
-        controller.login(id, pw);
+        userController.login(id, pw);
     }
 
     public void displaySignUp() throws IOException {
         System.out.println("***** 아이디 / 이름 / 비밀번호 / 주소 순으로 공백을 두어 입력해주세요. *****");
-        String[] inputs = input().split(" ");
-
+        String[] userInfos;
         while (true) {
-            inputs = input().split(" ");
-            if (inputs.length == 4) {
+            userInfos = input().split(" ");
+            if (userInfos.length == 4) {
                 break;
             } else {
                 System.out.println("잘못된 입력입니다. 아이디 / 이름 / 비밀번호 / 주소 순으로 공백을 두어 입력해주세요.");
             }
         }
 
-        User user = User.builder()
-                .id(inputs[0])
-                .name(inputs[1])
-                .password(inputs[2])
-                .address(inputs[3])
-                .bucket(new Bucket())
-                .credit(0)
-                .build();
-
-        controller.signUp(user);
-        System.out.println("***** 회원가입이 완료되었습니다. *****");
+        userController.signUp(userInfos[0], userInfos[1], userInfos[2], userInfos[3]);
     }
     public void displayReLogin() throws IOException {
         System.out.println("***** 1. 회원가입 *****");
@@ -84,17 +71,17 @@ public class UserView {
         if (userInput == 1) {
             System.out.println("***** 주소 변경 *****");
             String inputAddress = input();
-            controller.updateAddress(inputAddress);
+            userController.updateAddress(inputAddress);
         } else if (userInput == 2) {
             System.out.println("***** 충전하실 금액을 입력해주세요. *****");
             int price = Integer.parseInt(input());
-            controller.addCredit(price);
+            userController.addCredit(price);
         } else if (userInput == 0) {
-            controller.logout();
+            userController.logout();
         }
     }
 
-    public void displayBucket(Bucket bucket) throws IOException {
+    public void displayBucket(Bucket bucket) {
         System.out.println("***** 장바구니 보기 *****");
         System.out.println(bucket.getRestaurant());
         System.out.println("Total Price: " + bucket.getTotalPrice());
@@ -103,8 +90,4 @@ public class UserView {
         }
     }
 
-    private String input() throws IOException {
-        System.out.print("입력 : ");
-        return br.readLine();
-    }
 }

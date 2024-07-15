@@ -1,7 +1,7 @@
-package Bbashyan.dao;
+package Bbashyan.dao.restaurant;
 
-import Bbashyan.model.Menu;
-import Bbashyan.model.Restaurant;
+import Bbashyan.model.menu.Menu;
+import Bbashyan.model.restaurant.Restaurant;
 
 import java.util.*;
 

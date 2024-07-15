@@ -1,16 +1,14 @@
-package Bbashyan.view;
+package Bbashyan.view.bucket;
 
-import Bbashyan.controller.BucketController;
-import Bbashyan.model.Bucket;
-import Bbashyan.model.Menu;
+import Bbashyan.controller.bucket.BucketController;
+import Bbashyan.model.bucket.Bucket;
+import Bbashyan.model.menu.Menu;
 
 import java.util.Map;
 
 public class BucketView {
-    private BucketController controller;
 
-    public BucketView(BucketController controller) {
-        this.controller = controller;
+    public BucketView(BucketController bucketController) {
     }
 
     public void displayBucket(Bucket bucket) {
