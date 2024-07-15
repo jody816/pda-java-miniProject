@@ -26,6 +26,13 @@ public class UserController {
         }
     }
 
+    public void logout() throws IOException {
+        setCurrentUser(null);
+        System.out.println("***** 로그아웃 되었습니다. *****");
+        MainController.getInstance().displayMainMenu();
+    }
+
+
     public void signUp(String id, String name, String password, String address) throws IOException {
         try {
             userService.signUp(id, name, password, address);
@@ -57,11 +64,7 @@ public class UserController {
         userView.displayUserInfo(getCurrentUser());
     }
 
-    public void logout() throws IOException {
-        setCurrentUser(null);
-        System.out.println("***** 로그아웃 되었습니다. *****");
-        MainController.getInstance().displayMainMenu();
-    }
+
 
     public void displayUserInfo() throws IOException {
         userView.displayUserInfo(getCurrentUser());

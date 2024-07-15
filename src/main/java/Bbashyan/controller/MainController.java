@@ -14,7 +14,7 @@ import java.io.IOException;
 @Getter
 public class MainController {
 
-    private static MainController instance;
+    private static MainController mainController;
 
     private final UserController userController;
     private final CategoryController categoryController;
@@ -28,10 +28,9 @@ public class MainController {
         bucketController = new BucketController();
 
         restaurantController = new RestaurantController();
-        RestaurantDetailView restaurantDetailView = new RestaurantDetailView(bucketController);
+
         RestaurantView restaurantView = new RestaurantView(restaurantController);
         restaurantController.setRestaurantView(restaurantView);
-        restaurantController.setRestaurantDetailView(restaurantDetailView);
 
         categoryController = new CategoryController();
         categoryController.setRestaurantController(restaurantController);
@@ -40,11 +39,11 @@ public class MainController {
 
     }
 
-    public static MainController getInstance() {
-        if (instance == null) {
-            instance = new MainController();
+    public static MainController getMainController() {
+        if (mainController == null) {
+            mainController = new MainController();
         }
-        return instance;
+        return mainController;
     }
 
     public void displayMainMenu() throws IOException {

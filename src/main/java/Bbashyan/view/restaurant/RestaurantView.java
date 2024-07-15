@@ -9,7 +9,6 @@ import java.util.List;
 import static Bbashyan.utils.InputUtil.input;
 
 public class RestaurantView {
-
     private final RestaurantController restaurantController;
 
     public RestaurantView(RestaurantController restaurantController) {
@@ -26,5 +25,4 @@ public class RestaurantView {
         int restaurantSelect = Integer.parseInt(input());
         restaurantController.displayRestaurantDetailById(categoryId, restaurantSelect);
     }
-
 }
